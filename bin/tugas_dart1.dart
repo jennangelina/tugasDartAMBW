@@ -2,11 +2,41 @@ import 'dart:io';
 
 void main(List<String> arguments) {
   // NO 1
-  stdout.write("Masukkan angka-1: ");
+  stdout.write("Masukkan angka ganjil: ");
   String? input1 = stdin.readLineSync();
   int n1 = int.parse(input1!);
-   // NO 1
-   // nomor 1
+
+  for (int i = 0; i < n1; i++) {
+    if (i == 0 || i == n1 - 1) {
+      for (int j = 0; j < n1; j++) {
+        if (j == (n1 - 1) / 2) {
+          stdout.write(i + 1);
+        } else {
+          stdout.write("*");
+        }
+      }
+    } else if (i == (n1 - 1) / 2) {
+      for (int j = 0; j < n1; j++) {
+        if (j % 2 == 1) {
+          stdout.write(" ");
+        } else {
+          stdout.write(i + 1);
+        }
+      }
+    } else {
+      for (int j = 0; j < n1; j++) {
+        if (j == 0 || j == n1 - 1) {
+          stdout.write("*");
+        } else if (j == 1 || j == n1 - 2) {
+          stdout.write(i + 1);
+        } else {
+          stdout.write(" ");
+        }
+      }
+    }
+
+    print("");
+  }
 
   // NO 2
   stdout.write("Masukkan angka genap: ");
