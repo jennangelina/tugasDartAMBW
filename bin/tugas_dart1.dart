@@ -6,33 +6,101 @@ void main(List<String> arguments) {
   String? input1 = stdin.readLineSync();
   int n1 = int.parse(input1!);
 
-  for (int i = 0; i < n1; i++) {
-    if (i == 0 || i == n1 - 1) {
-      for (int j = 0; j < n1; j++) {
-        if (j == (n1 - 1) / 2) {
-          stdout.write(i + 1);
-        } else {
-          stdout.write("*");
-        }
-      }
-    } else if (i == (n1 - 1) / 2) {
-      for (int j = 0; j < n1; j++) {
-        if (j % 2 == 1) {
-          stdout.write(" ");
-        } else {
-          stdout.write(i + 1);
-        }
+  // for (int i = 0; i < n1; i++) {
+  //   if (i == 0 || i == n1 - 1) {
+  //     for (int j = 0; j < n1; j++) {
+  //       if (j == (n1 - 1) / 2) {
+  //         stdout.write(i + 1);
+  //       } else {
+  //         stdout.write("*");
+  //       }
+  //     }
+  //   } else if (i == (n1 - 1) / 2) {
+  //     for (int j = 0; j < n1; j++) {
+  //       if (j % 2 == 1) {
+  //         stdout.write(" ");
+  //       } else {
+  //         stdout.write(i + 1);
+  //       }
+  //     }
+  //   } else {
+  //     for (int j = 0; j < n1; j++) {
+  //       if (j == 0 || j == n1 - 1) {
+  //         stdout.write("*");
+  //       } else if (j == 1 || j == n1 - 2) {
+  //         stdout.write(i + 1);
+  //       } else {
+  //         stdout.write(" ");
+  //       }
+  //     }
+  //   }
+
+  //   print("");
+  // }
+
+  int countatas = (n1 - 1) ~/ 2;
+  int angka = 1;
+  // atas
+  for (int i = 0; i <= (n1 - 1) ~/ 2; i++) {
+    if (i == (n1 - 1) ~/ 2) {
+      for (int j = 0; j < (n1 + 1) / 2; j++) {
+        stdout.write(i + 1);
+        stdout.write(" ");
       }
     } else {
-      for (int j = 0; j < n1; j++) {
-        if (j == 0 || j == n1 - 1) {
-          stdout.write("*");
-        } else if (j == 1 || j == n1 - 2) {
-          stdout.write(i + 1);
-        } else {
+      for (int a = 0; a < countatas; a++) {
+        stdout.write("*");
+      }
+      stdout.write(angka);
+
+      if (countatas * 2 < n1 - 1) {
+        for (int a = 0; a < n1 - (countatas * 2) - 2; a++) {
           stdout.write(" ");
         }
+        stdout.write(angka);
       }
+
+      for (int b = 0; b < countatas; b++) {
+        stdout.write("*");
+      }
+
+      if (angka == 9) {
+      angka = 1;
+      } else {
+        angka++;
+      }
+
+      countatas--;
+    }
+    print("");
+  }
+
+  // bawah
+  angka = (n1 + 1) ~/ 2 + 1;
+  countatas = 1;
+  for (int i = (n1 + 1) ~/ 2; i < n1; i++) {
+    for (int a = 0; a < countatas; a++) {
+      stdout.write("*");
+    }
+    stdout.write(angka);
+
+    if (countatas * 2 < n1 - 1) {
+      for (int a = 0; a < n1 - (countatas * 2) - 2; a++) {
+        stdout.write(" ");
+      }
+      stdout.write(angka);
+    }
+
+    for (int b = 0; b < countatas; b++) {
+      stdout.write("*");
+    }
+
+    countatas++;
+
+    if (angka == 9) {
+      angka = 1;
+    } else {
+      angka++;
     }
 
     print("");
