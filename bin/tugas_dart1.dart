@@ -2,6 +2,7 @@ import 'dart:io';
 
 void main(List<String> arguments) {
    // NO 1
+   // nomor 1
 
    // NO 2
   stdout.write("Masukkan angka genap: ");
