@@ -5,6 +5,8 @@ void main(List<String> arguments) {
   stdout.write("Masukkan angka-1: ");
   String? input1 = stdin.readLineSync();
   int n1 = int.parse(input1!);
+   // NO 1
+   // nomor 1
 
   // NO 2
   stdout.write("Masukkan angka genap: ");
